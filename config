@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["wireplumber", "backlight", "network", "battery", "clock"],
+    "modules-right": ["wireplumber", "backlight", "network", "battery", "clock", "custom/power"],
     "sway/window": {
         "max-length": 50
     },
@@ -44,5 +44,10 @@
 
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}"
-    }
+    },
+
+	"custom/power": { 
+		"format":"", 
+		"on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'shutdown' 'systemctl shutdown'" 
+	}
 }
