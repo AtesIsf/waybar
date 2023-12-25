@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "modules-center": [],
     "modules-right": ["wireplumber", "backlight", "network", "battery", "clock", "custom/power"],
     "sway/window": {
         "max-length": 50
