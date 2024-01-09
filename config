@@ -2,17 +2,17 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["wireplumber", "backlight", "network", "battery", "clock", "custom/power"],
+    "modules-right": ["custom/screenshot", "wireplumber", "backlight", "network", "battery", "clock", "custom/power"],
     "sway/window": {
         "max-length": 50
     },
 
 	"wireplumber": {
   		"format": "{volume}% {icon}",
-  		"format-muted": "",
+  		"format-muted": "󰝟",
 		"format-icons": {
 			"mute": "",
-			"default": ["", ""],
+			"default": ["", "󰕾", ""],
 		},
   		"on-click": "helvum"
  	},
@@ -20,7 +20,7 @@
 	"backlight": {
 		"device": "acpi_video0",
 		"format": "{percent}% {icon}",
-		"format-icons": ["", ""]
+		"format-icons": ["", ""]
 	},
 
 	"network": {
@@ -29,7 +29,7 @@
 		"format-wifi": "{essid} ({signalStrength}%) ",
 		"format-ethernet": "{ifname} ",
 		"format-disconnected": "", //An empty format will hide the module.
-		"format-disconnected": "",
+		"format-disconnected": "󰖪",
 		"tooltip-format": "{ifname}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
 		"tooltip-format-ethernet": "{ifname} ",
@@ -49,5 +49,10 @@
 	"custom/power": { 
 		"format":"", 
 		"on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Shutdown' 'shutdown -h now' -b 'Reboot' 'reboot'" 
+	},
+
+	"custom/screenshot": {
+		"format":"",
+		"on-click":"bash /home/ates-isf/Scripts/ss.sh"
 	}
 }
