@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/screenshot", "wireplumber", "backlight", "network", "battery", "clock", "custom/power"],
+    "modules-right": ["custom/screenshot", "wireplumber", "backlight", "network", "custom/vpn", "battery", "clock", "custom/power"],
     "sway/window": {
         "max-length": 50
     },
@@ -54,5 +54,13 @@
 	"custom/screenshot": {
 		"format":"",
 		"on-click":"bash /home/ates-isf/Scripts/ss.sh"
+	},
+
+	"custom/vpn": {
+		"format": "{}",
+		"exec": "bash /home/ates-isf/Scripts/probevpn.sh",
+		"interval": 1,
+		"on-click": "bash /home/ates-isf/Scripts/vpn.sh",
+		"return-type": "json"
 	}
 }
