@@ -2,44 +2,43 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/screenshot", "wireplumber", "backlight", "network", "custom/vpn", "battery", "clock", "custom/power"],
+    "modules-right": ["wireplumber", "backlight", "network", "battery", "clock", "custom/power"],
     "sway/window": {
         "max-length": 50
     },
 
 	"wireplumber": {
   		"format": "{volume}% {icon}",
-  		"format-muted": "󰝟",
+  		"format-muted": "0% 󰝟",
 		"format-icons": {
-			"mute": "",
 			"default": ["", "󰕾", ""],
-		},
-  		"on-click": "helvum"
+		}
  	},
 
 	"backlight": {
-		"device": "acpi_video0",
+		"device": "amdgpu_bl1",
 		"format": "{percent}% {icon}",
 		"format-icons": ["", ""]
 	},
 
 	"network": {
-		"interface": "wlan0",
+		"interface": "wlp1s0",
 		"format": "{ifname}",
-		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-wifi": "({signalStrength}%) ",
 		"format-ethernet": "{ifname} ",
 		"format-disconnected": "", //An empty format will hide the module.
-		"format-disconnected": "󰖪",
+		"format-disconnected": "(0%) 󰖪",
 		"tooltip-format": "{ifname}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
 		"tooltip-format-ethernet": "{ifname} ",
 		"tooltip-format-disconnected": "Disconnected",
-		"max-length": 50
+		"max-length": 50,
+		"on-click":"bash /home/ates-isf/Scripts/rofi-wifi-menu.sh"
 	},
 
     "battery": {
         "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", ""]
     },
 
     "clock": {
@@ -49,18 +48,5 @@
 	"custom/power": { 
 		"format":"", 
 		"on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Shutdown' 'shutdown -h now' -b 'Reboot' 'reboot'" 
-	},
-
-	"custom/screenshot": {
-		"format":"",
-		"on-click":"bash /home/ates-isf/Scripts/ss.sh"
-	},
-
-	"custom/vpn": {
-		"format": "{}",
-		"exec": "bash /home/ates-isf/Scripts/probevpn.sh",
-		"interval": 1,
-		"on-click": "bash /home/ates-isf/Scripts/vpn.sh",
-		"return-type": "json"
 	}
 }
